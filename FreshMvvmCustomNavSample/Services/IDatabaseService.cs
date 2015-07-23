@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace FreshMvvmCustomNavSample
 {
@@ -11,7 +12,7 @@ namespace FreshMvvmCustomNavSample
 
         List<Quote> GetQuotes ();
 
-        void UpdateQuote (Quote quote);
+        Task UpdateQuote (Quote quote);
     }
 }
 

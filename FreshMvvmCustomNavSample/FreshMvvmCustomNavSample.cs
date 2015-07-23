@@ -2,6 +2,7 @@
 
 using Xamarin.Forms;
 using FreshMvvm;
+using Acr.UserDialogs;
 
 namespace FreshMvvmCustomNavSample
 {
@@ -10,6 +11,7 @@ namespace FreshMvvmCustomNavSample
         public App ()
         {
             FreshIOC.Container.Register<IDatabaseService, DatabaseService> ();
+            FreshIOC.Container.Register<IUserDialogs> (UserDialogs.Instance);
 
             MainPage = new LaunchPage(this);
         }

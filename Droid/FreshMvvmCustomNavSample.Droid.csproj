@@ -66,6 +66,15 @@
     <Reference Include="FreshMvvm">
       <HintPath>..\packages\FreshMvvm.0.0.5\lib\FreshMvvm.dll</HintPath>
     </Reference>
+    <Reference Include="Acr.UserDialogs">
+      <HintPath>..\packages\Acr.UserDialogs.3.4.1\lib\MonoAndroid10\Acr.UserDialogs.dll</HintPath>
+    </Reference>
+    <Reference Include="Acr.UserDialogs.Interface">
+      <HintPath>..\packages\Acr.UserDialogs.3.4.1\lib\MonoAndroid10\Acr.UserDialogs.Interface.dll</HintPath>
+    </Reference>
+    <Reference Include="AndHUD">
+      <HintPath>..\packages\Acr.UserDialogs.3.4.1\lib\MonoAndroid10\AndHUD.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FreshMvvmCustomNavSample\FreshMvvmCustomNavSample.csproj">

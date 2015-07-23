@@ -1,6 +1,7 @@
 ﻿using Xamarin.Forms;
 using PropertyChanged;
 using FreshMvvm;
+using Acr.UserDialogs;
 
 namespace FreshMvvmCustomNavSample
 {
@@ -8,12 +9,13 @@ namespace FreshMvvmCustomNavSample
     public class QuotePageModel : FreshBasePageModel
     {
         IDatabaseService _databaseService;
-
+        IUserDialogs _userDialogs;
         public Quote Quote { get; set; }
 
-        public QuotePageModel (IDatabaseService databaseService)
+        public QuotePageModel (IDatabaseService databaseService, IUserDialogs userDialogs)
         {
             _databaseService = databaseService;
+            _userDialogs = userDialogs;
         }
 
         public override void Init (object initData)
@@ -26,7 +28,18 @@ namespace FreshMvvmCustomNavSample
         public Command SaveCommand {
             get {
                 return new Command (async () => {
-                    _databaseService.UpdateQuote (Quote);
+
+                    _userDialogs.ShowLoading("Saving Quote");
+
+                    try
+                    {
+                        await _databaseService.UpdateQuote (Quote);
+                    }
+                    finally
+                    {
+                        _userDialogs.HideLoading();
+                    }
+
                     await CoreMethods.PopPageModel (Quote);
                 });
             }

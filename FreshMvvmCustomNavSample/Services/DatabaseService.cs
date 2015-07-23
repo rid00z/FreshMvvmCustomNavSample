@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace FreshMvvmCustomNavSample
 {
@@ -29,8 +30,10 @@ namespace FreshMvvmCustomNavSample
             }
         }
 
-        public void UpdateQuote (Quote quote)
+        public async Task UpdateQuote (Quote quote)
         {
+            await Task.Delay (TimeSpan.FromSeconds (2));
+
             if (quote.Id == 0)
             {
                 quote.Id = _quotes.Count + 1;
